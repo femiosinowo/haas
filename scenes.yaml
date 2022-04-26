@@ -1,0 +1,28 @@
+- id: '1648281660167'
+  name: TV
+  entities:
+    switch.virtual_tv:
+      friendly_name: TV
+      unique_id: tv
+      state: 'on'
+  icon: mdi:television
+- id: '1648281814132'
+  name: Good Night
+  entities:
+    switch.virtual_good_night:
+      friendly_name: Good Night
+      unique_id: good_night
+      state: 'off'
+  icon: mdi:sleep
+- id: '1648281901024'
+  name: Office Control
+  entities:
+    switch.virtual_office_control:
+      friendly_name: Office Control
+      unique_id: office_control
+      state: 'off'
+  icon: mdi:desktop-classic
+- id: '1648408182284'
+  name: Away
+  entities: {}
+  icon: mdi:exit-run

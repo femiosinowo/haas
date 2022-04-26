@@ -1,0 +1,110 @@
+- alias: Good Night Scene
+  trigger:
+  - platform: state
+    entity_id: input_boolean.good_night
+    to: 'on'
+  action:
+  - service: light.turn_off
+    target:
+      entity_id: all
+  id: ca0a6b778baa4473b51e8069b5e75550
+- id: '1648260743049'
+  alias: System Set Default Theme
+  description: ''
+  use_blueprint:
+    path: ui_lovelace_minimalist/set_theme.yaml
+    input:
+      theme: minimalist-mobile-tapbar
+      mode: light
+- id: '1650168485789'
+  alias: Front Door pressed
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 886e58dc22172837cfb199166afa5e53
+    domain: nest
+    type: doorbell_chime
+  condition: []
+  action:
+  - service: notify.mobile_app_paosin_iphone12_pro
+    data:
+      message: Person Dey Outside
+      title: Door Bell Pressed
+      data:
+        image: /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id
+          }}/thumbnail
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.office_clock
+      message: hey! someone is at the door
+      language: en-US
+      options:
+        gender: male
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.living_room_google_mini
+      message: hey! someone is at the door
+      language: en-US
+      options:
+        gender: male
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.kitchen_speaker
+      message: hey! someone is at the door
+      language: en-US
+      options:
+        gender: male
+  - service: media_player.play_media
+    data:
+      media_content_id: amzn_sfx_doorbell_01
+      media_content_type: sound
+    target:
+      entity_id:
+      - media_player.femi_s_polk_command_bar
+      - media_player.femi_s_ecobee4
+      - media_player.femi_s_echo
+  mode: single
+- id: '1650556595199'
+  alias: DoorOpen10min
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.frontdoorsensor
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  condition: []
+  action:
+  - service: tts.cloud_say
+    data:
+      entity_id: media_player.office_clock
+      message: hey! the door has been open for 10 minutes
+      language: en-US
+      options:
+        gender: male
+  - service: notify.mobile_app_paosin_iphone12_pro
+    data:
+      message: hey! the door has been open for 10 minutes
+      title: Front Door Opened
+  mode: single
+- id: '1650900606954'
+  alias: Front Door Opened
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.frontdoorsensor
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: amzn_sfx_doorbell_01
+      media_content_type: sound
+    target:
+      entity_id:
+      - media_player.femi_s_echo
+      - media_player.femi_s_ecobee4
+      - media_player.firetv_cube
+  mode: single

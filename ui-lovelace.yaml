@@ -1,0 +1,383 @@
+#button_card_templates: !include_dir_merge_named "custom_components/ui_lovelace_minimalist/__ui_minimalist__/ulm_templates/"
+title: Home
+#swipe_nav:
+#  wrap: true
+#  animate: swipe
+views:
+  - theme: Backend-selected
+    path: default_view
+    title: Home
+    type: sidebar
+    badges: []
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: menu
+          - type: weather
+            entity: weather.home
+            show_conditions: true
+            show_temperature: true
+          - type: entity
+            entity: person.femi_osinowo
+            icon_color: orange
+            icon: mdi:account-circle
+          - type: entity
+            entity: light.basement_lights
+            icon_color: orange
+            icon: mdi:ceiling-light
+      - square: true
+        columns: 2
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: lock.front_door_lock
+            tap_action:
+              action: toggle
+            layout: vertical
+      - square: false
+        columns: 2
+        title: 1st Floor
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: switch.virtual_tv
+            icon: mdi:television
+            icon_color: lime
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.livingroom_lights
+            name: Living Room
+            tap_action:
+              action: toggle
+            icon: mdi:light-recessed
+            show_brightness_control: true
+          - type: custom:mushroom-light-card
+            entity: light.dining_room_lights
+            name: Dining
+            show_brightness_control: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            use_light_color: true
+            icon: mdi:ceiling-light-multiple
+          - type: custom:mushroom-light-card
+            entity: light.hallway_lights
+            name: Hallway
+            show_brightness_control: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            use_light_color: true
+            icon: mdi:ceiling-light-multiple
+          - type: custom:mushroom-light-card
+            entity: light.living_room_lamp
+            name: Lamp
+            show_brightness_control: true
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            use_light_color: true
+            icon: mdi:floor-lamp
+      - square: false
+        columns: 2
+        type: grid
+        title: Master Bedroom
+        cards:
+          - type: custom:mushroom-fan-card
+            entity: fan.master_bedroom_fan_32ce2000_fan
+            show_percentage_control: true
+            icon_animation: true
+            name: Fan
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.master_bedroom_lights
+            name: Lights
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.femi_bedside_light_e9749efe_level_light_color_on_off
+            name: Femi BedLight
+            show_brightness_control: true
+            show_color_temp_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: switch.light_switch
+            tap_action:
+              action: toggle
+            name: Closet
+          - type: custom:mushroom-light-card
+            entity: light.master_bedroom_fan_level_on_off
+            tap_action:
+              action: toggle
+            name: Fan Light
+            icon: mdi:ceiling-fan-light
+          - type: custom:mushroom-entity-card
+            entity: media_player.masterbedroom_tele
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            #template: card_media_player
+            name: Master Bedroom TV
+            entity: media_player.masterbedroom_tele
+            #variables:
+            #  ulm_card_media_player_enable_art: true
+            #  ulm_card_media_player_enable_controls: true
+            #  ulm_card_media_player_enable_volume_slider: true
+            #  ulm_card_media_player_enable_popup: true
+          - type: custom:button-card
+            template: card_thermostat
+            entity: climate.thermostat
+            variables:
+              ulm_card_thermostat_enable_collapse: true
+              ulm_card_thermostat_enable_controls: true
+              ulm_card_thermostat_enable_hvac_modes: true
+              ulm_card_thermostat_enable_popup: true
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: binary_sensor.masterbedroom_ecobee_occupancy
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+            icon_color: blue-grey
+          - type: entity
+            entity: sensor.masterbedroom_ecobee_temperature
+            icon_color: brown
+      - square: false
+        columns: 2
+        type: grid
+        title: Kids Room
+        cards:
+          - type: custom:mushroom-fan-card
+            show_percentage_control: true
+            icon_animation: true
+            name: Fan
+            tap_action:
+              action: toggle
+            entity: fan.virtual_master_bedroom_fan
+          - type: custom:mushroom-light-card
+            entity: light.kids_bedroom_lights
+            name: Lights
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.kids_tele_on_off
+            tap_action:
+              action: toggle
+            name: Tele
+      - square: false
+        columns: 2
+        type: grid
+        title: Walkways
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.hallway_lights
+            name: Hallway
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.staircase_lights
+            name: Stairs
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.basement_stairs
+          - type: custom:mushroom-entity-card
+            entity: switch.loft_stairs_light
+            icon: mdi:chandelier
+      - square: false
+        columns: 2
+        type: grid
+        title: Kitchen
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.kitchen_lights
+            name: Kitchen
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.kitchen_countertop_light
+            name: Counter Lights
+            layout: vertical
+            icon: mdi:countertop-outline
+  - title: frontdoor Codes and Configuration
+    path: keypad-frontdoor
+    icon: mdi:lock-smart
+    panel: false
+    badges:
+      - input_text.frontdoor_lockname
+      - input_boolean.frontdoor_lock_notifications
+      - input_boolean.frontdoor_dooraccess_notifications
+      - input_boolean.frontdoor_garageacess_notifications
+      - entity: lock.front_door_lock
+      - entity: input_text.keymaster_frontdoor_autolock_door_time_day
+      - entity: input_text.keymaster_frontdoor_autolock_door_time_night
+      - entity: input_boolean.keymaster_frontdoor_autolock
+      - entity: timer.keymaster_frontdoor_autolock
+    cards:
+      - type: vertical-stack
+        cards:
+          - content: |
+              ## Code 1
+            type: markdown
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: input_text.frontdoor_name_1
+              - entity: input_text.frontdoor_pin_1
+              - entity: input_boolean.enabled_frontdoor_1
+              - entity: input_boolean.notify_frontdoor_1
+              - type: divider
+              - entity: sensor.connected_frontdoor_1
+                state_color: true
+              - entity: binary_sensor.active_frontdoor_1
+                state_color: true
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Advanced Options
+                entities:
+                  - entity: input_boolean.reset_codeslot_frontdoor_1
+                  - type: divider
+                  - entity: input_boolean.accesslimit_frontdoor_1
+                  - entity: input_number.accesscount_frontdoor_1
+                    type: custom:numberbox-card
+                    icon: mdi:key-variant
+                    speed: 250
+                  - type: divider
+                  - entity: input_boolean.daterange_frontdoor_1
+                  - entity: input_datetime.start_date_frontdoor_1
+                  - entity: input_datetime.end_date_frontdoor_1
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Custom Weekdays
+                    entities:
+                      - input_boolean.sun_frontdoor_1
+                      - input_boolean.sun_inc_frontdoor_1
+                      - input_datetime.sun_start_date_frontdoor_1
+                      - input_datetime.sun_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.mon_frontdoor_1
+                      - input_boolean.mon_inc_frontdoor_1
+                      - input_datetime.mon_start_date_frontdoor_1
+                      - input_datetime.mon_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.tue_frontdoor_1
+                      - input_boolean.tue_inc_frontdoor_1
+                      - input_datetime.tue_start_date_frontdoor_1
+                      - input_datetime.tue_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.wed_frontdoor_1
+                      - input_boolean.wed_inc_frontdoor_1
+                      - input_datetime.wed_start_date_frontdoor_1
+                      - input_datetime.wed_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.thu_frontdoor_1
+                      - input_boolean.thu_inc_frontdoor_1
+                      - input_datetime.thu_start_date_frontdoor_1
+                      - input_datetime.thu_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.fri_frontdoor_1
+                      - input_boolean.fri_inc_frontdoor_1
+                      - input_datetime.fri_start_date_frontdoor_1
+                      - input_datetime.fri_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.sat_frontdoor_1
+                      - input_boolean.sat_inc_frontdoor_1
+                      - input_datetime.sat_start_date_frontdoor_1
+                      - input_datetime.sat_end_date_frontdoor_1
+      - type: vertical-stack
+        cards:
+          - content: |
+              ## Code 2
+            type: markdown
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: input_text.frontdoor_name_2
+              - entity: input_text.frontdoor_pin_2
+              - entity: input_boolean.enabled_frontdoor_2
+              - entity: input_boolean.notify_frontdoor_2
+              - type: divider
+              - entity: sensor.connected_frontdoor_2
+                state_color: true
+              - entity: binary_sensor.active_frontdoor_2
+                state_color: true
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Advanced Options
+                entities:
+                  - entity: input_boolean.reset_codeslot_frontdoor_2
+                  - type: divider
+                  - entity: input_boolean.accesslimit_frontdoor_2
+                  - entity: input_number.accesscount_frontdoor_2
+                    type: custom:numberbox-card
+                    icon: mdi:key-variant
+                    speed: 250
+                  - type: divider
+                  - entity: input_boolean.daterange_frontdoor_2
+                  - entity: input_datetime.start_date_frontdoor_2
+                  - entity: input_datetime.end_date_frontdoor_2
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Custom Weekdays
+                    entities:
+                      - input_boolean.sun_frontdoor_2
+                      - input_boolean.sun_inc_frontdoor_2
+                      - input_datetime.sun_start_date_frontdoor_2
+                      - input_datetime.sun_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.mon_frontdoor_2
+                      - input_boolean.mon_inc_frontdoor_2
+                      - input_datetime.mon_start_date_frontdoor_2
+                      - input_datetime.mon_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.tue_frontdoor_2
+                      - input_boolean.tue_inc_frontdoor_2
+                      - input_datetime.tue_start_date_frontdoor_2
+                      - input_datetime.tue_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.wed_frontdoor_2
+                      - input_boolean.wed_inc_frontdoor_2
+                      - input_datetime.wed_start_date_frontdoor_2
+                      - input_datetime.wed_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.thu_frontdoor_2
+                      - input_boolean.thu_inc_frontdoor_2
+                      - input_datetime.thu_start_date_frontdoor_2
+                      - input_datetime.thu_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.fri_frontdoor_2
+                      - input_boolean.fri_inc_frontdoor_2
+                      - input_datetime.fri_start_date_frontdoor_2
+                      - input_datetime.fri_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.sat_frontdoor_2
+                      - input_boolean.sat_inc_frontdoor_2
+                      - input_datetime.sat_start_date_frontdoor_2
+                      - input_datetime.sat_end_date_frontdoor_2

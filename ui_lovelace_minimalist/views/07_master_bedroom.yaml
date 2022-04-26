@@ -1,0 +1,92 @@
+  - theme: Backend-selected
+    path: masterbedroom
+    icon: mdi:bed-double
+    cards:
+      - square: false
+        columns: 2
+        type: grid
+        title: "Master Bedroom"
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.master_bedroom_lights_3
+            use_light_color: true
+            show_brightness_control: true
+          - type: custom:mushroom-fan-card
+            entity: fan.master_bedroom_fan_fan
+            show_percentage_control: true
+            show_oscillate_control: false
+            name: Fan
+            icon_animation: true
+          - type: custom:mushroom-light-card
+            entity: light.femi_bedside_light_e9749efe_level_light_color_on_off
+            show_brightness_control: true
+            use_light_color: true
+            show_color_control: true
+          - type: custom:mushroom-light-card
+            entity: light.sade_bedlight_level_light_color_on_off
+            use_light_color: true
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: true
+          - type: custom:mushroom-entity-card
+            entity: light.sade_s_closet
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: light.master_bedroom_fan_level_on_off
+            name: Fan Light
+      - type: custom:mini-media-player
+        entity: media_player.masterbedroom_tele
+        group: true
+        source: icon
+        sound_mode: icon
+        info: scroll
+        artwork: cover
+      - type: custom:mini-media-player
+        entity: media_player.ccast_masterbedroom
+        group: true
+        artwork: cover
+        source: icon
+        sound_mode: icon
+        info: scroll
+      - type: custom:mushroom-media-player-card
+        entity: media_player.ccast_masterbedroom
+        use_media_info: true
+        use_media_artwork: true
+        media_controls:
+          - on_off
+        volume_controls:
+          - volume_set
+          - volume_mute
+          - volume_buttons
+        tap_action:
+          action: toggle
+      - type: media-control
+        entity: media_player.masterbedroom_tele
+        theme: Mushroom
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.masterbedroom_ecobee_temperature
+              - type: entity
+                entity: binary_sensor.sade_closet_motion
+          - type: entities
+            entities:
+              - entity: sensor.sade_closet_motion_sensor_power
+              - entity: sensor.sade_bedlight_control_power
+              - entity: sensor.femi_switch_control_7c8d94fe_power
+              - entity: sensor.masterbedroom_ecobee_temperature
+              - entity: binary_sensor.masterbedroom_ecobee_occupancy
+            state_color: true
+            header:
+              type: graph
+              entity: sensor.masterbedroom_ecobee_temperature
+      - type: media-control
+        entity: media_player.master_bedroom

@@ -1,0 +1,397 @@
+  - title: Home
+    path: 0
+    icon: mdi:flower
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: menu
+          - type: weather
+            entity: weather.home
+            show_conditions: true
+            show_temperature: true
+          - type: entity
+            entity: binary_sensor.frontdoorsensor
+            icon_color: red
+            icon: mdi:door
+          - type: entity
+            entity: binary_sensor.deck_door
+            icon_color: red
+            icon: mdi:door
+      - type: custom:button-card
+        template: card_scenes
+        variables:
+          ulm_card_welcome_scenes_collapse: input_boolean.good_night
+          ulm_weather: weather.home
+          entity_1:
+            entity_id: scene.tv
+            icon: mdi:television
+            name: TV
+            icon_color: yellow
+            bg_color: yellow
+          entity_2:
+            entity_id: scene.good_night
+            icon: mdi:sleep
+            name: Good Night
+            bg_color: red
+            icon_color: red
+          entity_3:
+            entity_id: scene.office_control
+            icon: mdi:chair-rolling
+            name: Office
+            bg_color: blue
+            icon_color: blue
+          entity_4:
+            entity_id: scene.good_night
+            icon: mdi:weather-night
+            name: Bye
+            bg_color: purple
+            icon_color: purple
+          entity_5:
+            entity_id: scene.good_night
+            icon: mdi:lightbulb
+            name: CC
+            bg_color: green
+            icon_color: green
+      - square: false
+        columns: 1
+        type: grid
+        title: 1st Floor
+        cards:
+          - square: false
+            columns: 1
+            type: grid
+            cards:
+              - show_state: true
+                show_name: true
+                camera_view: auto
+                type: picture-entity
+                entity: camera.living_room_high
+          - square: false
+            columns: 1
+            type: grid
+            cards:
+              - square: false
+                columns: 2
+                type: grid
+                cards:
+                  - type: custom:mushroom-lock-card
+                    entity: lock.front_door_lock
+                    tap_action:
+                      action: toggle
+                  - type: custom:mushroom-entity-card
+                    entity: switch.virtual_tv
+                    tap_action:
+                      action: toggle
+              - type: custom:button-card
+                template: card_thermostat
+                entity: climate.thermostat
+                variables:
+                  ulm_card_thermostat_enable_collapse: true
+                  ulm_card_thermostat_enable_controls: true
+                  ulm_card_thermostat_enable_hvac_modes: true
+                  ulm_card_thermostat_enable_popup: true
+              - type: custom:mini-media-player
+                entity: media_player.ccast_living_room_tv
+                group: false
+                volume_stateless: false
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.living_room_lights
+                use_light_color: true
+                show_brightness_control: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.dining_room_lights
+                use_light_color: true
+                show_brightness_control: true
+                show_color_temp_control: false
+                show_color_control: false
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.hallway_lights
+                name: Hallway
+                show_brightness_control: true
+                use_light_color: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.living_room_lamp
+                name: L.R Lamp
+                show_brightness_control: true
+                show_color_control: true
+                use_light_color: true
+                tap_action:
+                  action: toggle
+      - title: Master Bedroom
+        cards:
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: custom:mushroom-fan-card
+                entity: fan.master_bedroom_fan_fan
+                show_percentage_control: true
+                icon_animation: true
+                name: Fan
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.master_bedroom_lights_3
+                name: M.R Lights
+                show_brightness_control: true
+                use_light_color: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.femi_bedside_light_e9749efe_level_light_color_on_off
+                show_brightness_control: true
+                name: Femi Bedlight
+                use_light_color: true
+                show_color_control: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.sade_bedlight_level_light_color_on_off
+                show_brightness_control: true
+                name: Sade Bedlight
+                use_light_color: true
+                show_color_control: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.sade_s_closet
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.master_bedroom_fan_level_on_off
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-entity-card
+                entity: switch.chromecast_switch
+                tap_action:
+                  action: toggle
+          - type: grid
+            columns: 1
+            square: false
+            cards:
+              - type: custom:mini-media-player
+                entity: media_player.masterbedroom_tele
+                group: true
+                source: icon
+                sound_mode: icon
+                info: scroll
+                artwork: cover
+              - type: custom:mini-media-player
+                entity: media_player.ccast_masterbedroom
+                group: true
+                artwork: cover
+                source: icon
+                sound_mode: icon
+                info: scroll
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.masterbedroom_ecobee_temperature
+        type: vertical-stack
+      - square: false
+        columns: 1
+        title: Kids Room
+        type: grid
+        cards:
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.kids_bedroom_light
+                name: Lights
+                use_light_color: true
+                show_brightness_control: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-entity-card
+                entity: switch.kids_tele
+                icon: mdi:television
+                tap_action:
+                  action: toggle
+          - type: custom:mini-media-player
+            entity: media_player.kids_tv
+            name: TV
+          - square: true
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.kids_room_ecobee_temperature
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.kids_motion_up_ias_zone
+          - show_state: true
+            show_name: true
+            camera_view: live
+            type: picture-entity
+            entity: camera.kids_room
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+      - square: false
+        columns: 2
+        type: grid
+        title: Walkways & Stairs
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.hallway_lights
+            name: Hallway
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.staircase_lights
+            name: Stairs
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.basement_stairs_lights
+            icon: mdi:lightbulb
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.loft_stairs_light
+            icon: mdi:chandelier
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.loft_stairs_light
+            use_light_color: true
+            tap_action:
+              action: toggle
+      - square: false
+        columns: 1
+        title: Office
+        type: grid
+        cards:
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: switch.virtual_office_control
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-entity-card
+                entity: switch.monitor_switch_c365e4fe_on_off
+                name: Monitor Switch
+                tap_action:
+                  action: toggle
+          - type: custom:mini-media-player
+            entity: media_player.ccast_office
+            name: Office TV
+            volume_stateless: true
+            toggle_power: true
+          - type: custom:mushroom-media-player-card
+            entity: media_player.tv_office_basement
+            use_media_info: true
+            use_media_artwork: true
+            media_controls:
+              - on_off
+            volume_controls:
+              - volume_mute
+              - volume_set
+              - volume_buttons
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.basement_heater_5bd40601_on_off
+            tap_action:
+              action: toggle
+      - square: false
+        columns: 2
+        type: grid
+        title: Kitchen
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.kitchen_lights
+            name: Kitchen
+            show_brightness_control: true
+            use_light_color: true
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: light.kitchen_countertop_light
+            name: Counter Lights
+            icon: ''
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.sink_light
+            name: Sink Lights
+            icon: ''
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.kitchen_motion_ias_zone
+            name: Motion
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.kitchen_sink_ias_zone
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.kitchen_motion_temperature
+      - square: false
+        columns: 1
+        type: grid
+        title: Basement
+        cards:
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.basement_lights
+                use_light_color: true
+                tap_action:
+                  action: toggle
+                show_brightness_control: true
+              - type: custom:mushroom-light-card
+                entity: light.basement_lamp
+                name: Lamp
+                show_color_temp_control: false
+                show_color_control: true
+                use_light_color: true
+                show_brightness_control: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-light-card
+                entity: light.basement_stairs_lights
+                name: Stairs
+                use_light_color: true
+                tap_action:
+                  action: toggle
+              - type: custom:mushroom-entity-card
+                entity: switch.basement_heater_5bd40601_on_off
+                tap_action:
+                  action: toggle
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.basement_ecobee_temperature
+          - square: true
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.basement_ecobee_occupancy
+              - type: custom:mushroom-entity-card
+                entity: switch.virtual_man_cave
+                tap_action:
+                  action: toggle
+          - show_state: true
+            show_name: true
+            camera_view: live
+            type: picture-entity
+            entity: camera.basement
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+            camera_image: camera.basement

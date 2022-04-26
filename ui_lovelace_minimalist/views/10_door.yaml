@@ -1,0 +1,159 @@
+  - title: frontdoor Codes and Configuration
+    path: keypad-frontdoor
+    icon: mdi:lock-smart
+    panel: false
+    badges:
+      - input_text.frontdoor_lockname
+      - input_boolean.frontdoor_lock_notifications
+      - input_boolean.frontdoor_dooraccess_notifications
+      - input_boolean.frontdoor_garageacess_notifications
+      - entity: lock.front_door_lock
+      - entity: input_text.keymaster_frontdoor_autolock_door_time_day
+      - entity: input_text.keymaster_frontdoor_autolock_door_time_night
+      - entity: input_boolean.keymaster_frontdoor_autolock
+      - entity: timer.keymaster_frontdoor_autolock
+    cards:
+      - type: vertical-stack
+        cards:
+          - content: |
+              ## Code 1
+            type: markdown
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: input_text.frontdoor_name_1
+              - entity: input_text.frontdoor_pin_1
+              - entity: input_boolean.enabled_frontdoor_1
+              - entity: input_boolean.notify_frontdoor_1
+              - type: divider
+              - entity: sensor.connected_frontdoor_1
+                state_color: true
+              - entity: binary_sensor.active_frontdoor_1
+                state_color: true
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Advanced Options
+                entities:
+                  - entity: input_boolean.reset_codeslot_frontdoor_1
+                  - type: divider
+                  - entity: input_boolean.accesslimit_frontdoor_1
+                  - entity: input_number.accesscount_frontdoor_1
+                    type: custom:numberbox-card
+                    icon: mdi:key-variant
+                    speed: 250
+                  - type: divider
+                  - entity: input_boolean.daterange_frontdoor_1
+                  - entity: input_datetime.start_date_frontdoor_1
+                  - entity: input_datetime.end_date_frontdoor_1
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Custom Weekdays
+                    entities:
+                      - input_boolean.sun_frontdoor_1
+                      - input_boolean.sun_inc_frontdoor_1
+                      - input_datetime.sun_start_date_frontdoor_1
+                      - input_datetime.sun_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.mon_frontdoor_1
+                      - input_boolean.mon_inc_frontdoor_1
+                      - input_datetime.mon_start_date_frontdoor_1
+                      - input_datetime.mon_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.tue_frontdoor_1
+                      - input_boolean.tue_inc_frontdoor_1
+                      - input_datetime.tue_start_date_frontdoor_1
+                      - input_datetime.tue_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.wed_frontdoor_1
+                      - input_boolean.wed_inc_frontdoor_1
+                      - input_datetime.wed_start_date_frontdoor_1
+                      - input_datetime.wed_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.thu_frontdoor_1
+                      - input_boolean.thu_inc_frontdoor_1
+                      - input_datetime.thu_start_date_frontdoor_1
+                      - input_datetime.thu_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.fri_frontdoor_1
+                      - input_boolean.fri_inc_frontdoor_1
+                      - input_datetime.fri_start_date_frontdoor_1
+                      - input_datetime.fri_end_date_frontdoor_1
+                      - type: divider
+                      - input_boolean.sat_frontdoor_1
+                      - input_boolean.sat_inc_frontdoor_1
+                      - input_datetime.sat_start_date_frontdoor_1
+                      - input_datetime.sat_end_date_frontdoor_1
+      - type: vertical-stack
+        cards:
+          - content: |
+              ## Code 2
+            type: markdown
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: input_text.frontdoor_name_2
+              - entity: input_text.frontdoor_pin_2
+              - entity: input_boolean.enabled_frontdoor_2
+              - entity: input_boolean.notify_frontdoor_2
+              - type: divider
+              - entity: sensor.connected_frontdoor_2
+                state_color: true
+              - entity: binary_sensor.active_frontdoor_2
+                state_color: true
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Advanced Options
+                entities:
+                  - entity: input_boolean.reset_codeslot_frontdoor_2
+                  - type: divider
+                  - entity: input_boolean.accesslimit_frontdoor_2
+                  - entity: input_number.accesscount_frontdoor_2
+                    type: custom:numberbox-card
+                    icon: mdi:key-variant
+                    speed: 250
+                  - type: divider
+                  - entity: input_boolean.daterange_frontdoor_2
+                  - entity: input_datetime.start_date_frontdoor_2
+                  - entity: input_datetime.end_date_frontdoor_2
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Custom Weekdays
+                    entities:
+                      - input_boolean.sun_frontdoor_2
+                      - input_boolean.sun_inc_frontdoor_2
+                      - input_datetime.sun_start_date_frontdoor_2
+                      - input_datetime.sun_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.mon_frontdoor_2
+                      - input_boolean.mon_inc_frontdoor_2
+                      - input_datetime.mon_start_date_frontdoor_2
+                      - input_datetime.mon_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.tue_frontdoor_2
+                      - input_boolean.tue_inc_frontdoor_2
+                      - input_datetime.tue_start_date_frontdoor_2
+                      - input_datetime.tue_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.wed_frontdoor_2
+                      - input_boolean.wed_inc_frontdoor_2
+                      - input_datetime.wed_start_date_frontdoor_2
+                      - input_datetime.wed_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.thu_frontdoor_2
+                      - input_boolean.thu_inc_frontdoor_2
+                      - input_datetime.thu_start_date_frontdoor_2
+                      - input_datetime.thu_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.fri_frontdoor_2
+                      - input_boolean.fri_inc_frontdoor_2
+                      - input_datetime.fri_start_date_frontdoor_2
+                      - input_datetime.fri_end_date_frontdoor_2
+                      - type: divider
+                      - input_boolean.sat_frontdoor_2
+                      - input_boolean.sat_inc_frontdoor_2
+                      - input_datetime.sat_start_date_frontdoor_2
+                      - input_datetime.sat_end_date_frontdoor_2

@@ -1,0 +1,83 @@
+  - theme: Backend-selected
+    path: kitchen
+    icon: mdi:fridge
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: back
+        alignment: justify
+      - type: custom:mushroom-title-card
+        title: Kitchen
+      - square: false
+        columns: 2
+        type: grid
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.kitchen_lights
+            use_light_color: true
+            show_brightness_control: true
+            name: Lights
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-light-card
+            entity: light.kitchen_countertop_light
+            use_light_color: true
+            tap_action:
+              action: toggle
+            name: CounterTop Lights
+          - type: custom:mushroom-light-card
+            entity: light.sink_light
+            tap_action:
+              action: toggle
+            use_light_color: true
+      - type: custom:mushroom-media-player-card
+        entity: media_player.kids_tv
+        use_media_info: true
+        use_media_artwork: true
+        media_controls:
+          - on_off
+        volume_controls:
+          - volume_set
+          - volume_mute
+          - volume_buttons
+        tap_action:
+          action: toggle
+        name: Kids TV
+      - type: media-control
+        entity: media_player.kids_tv
+        theme: Mushroom
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.kitchen_motion_temperature
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.4_in_1_sensor_air_temperature
+              - type: entity
+                entity: binary_sensor.kitchen_motion_ias_zone
+                name: Motion
+              - type: entity
+                entity: binary_sensor.kitchen_sink_ias_zone
+                name: Under Sink
+              - type: entity
+                entity: sensor.4_in_1_sensor_humidity
+                name: Humidity
+              - type: entity
+                entity: sensor.4_in_1_sensor_illuminance
+                name: Illuminance
+          - type: entities
+            entities:
+              - entity: sensor.4_in_1_sensor_battery_level
+              - entity: sensor.kitchen_motion_power
+              - entity: sensor.kitchen_sink_power
+            state_color: true
+            header:
+              type: graph
+              entity: sensor.4_in_1_sensor_air_temperature

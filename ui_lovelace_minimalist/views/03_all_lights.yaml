@@ -1,0 +1,69 @@
+  - title: "Home"
+    path: lights
+    icon: "mdi:lightbulb"
+    cards:
+      - type: "vertical-stack"
+        cards:
+          - type: "custom:auto-entities"
+            card:
+              type: "grid"
+              columns: 2
+              square: false
+              title: On Lights
+            card_param: "cards"
+            sort:
+              count: 30
+            filter:
+              include:
+                - domain: "light"
+                  state: 'on'
+                  options:
+                    type: "custom:mushroom-light-card"
+                    show_brightness_control: true
+                    show_color_control: true
+                    use_light_color: true
+                    tap_action:
+                      action: toggle
+
+          - type: "custom:auto-entities"
+            card:
+              type: "grid"
+              columns: 2
+              square: false
+              title: Off Lights
+            card_param: "cards"
+            sort:
+              count: 30
+            filter:
+              include:
+                - domain: "light"
+                  state: "off"
+                  options:
+                    type: "custom:mushroom-light-card"
+                    show_brightness_control: true
+                    show_color_control: true
+                    use_light_color: true
+                    tap_action:
+                      action: toggle
+
+          - type: "custom:auto-entities"
+            card:
+              type: "grid"
+              columns: 3
+              square: false
+              title: "Batteries"
+            card_param: "cards"
+            sort:
+              count: 20
+            filter:
+              include:
+                - attributes:
+                    unit_of_measurement: "%"
+                    device_class: "battery"
+                  options:
+                    type: "custom:button-card"
+                    template: "card_battery"
+                    variables:
+                      ulm_card_battery_battery_state_entity_id: "this.entity_id"
+                      ulm_card_battery_battery_level_danger: 30
+                      ulm_card_battery_battery_level_warning: 80

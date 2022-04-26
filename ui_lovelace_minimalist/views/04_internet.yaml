@@ -1,0 +1,21 @@
+  - title: Home
+    path: internet
+    icon: mdi:earth
+    cards:
+      - type: vertical-stack
+        cards:
+          - square: true
+            columns: 1
+            type: grid
+            cards:
+              - type: entities
+                entities:
+                  - entity: switch.pnc_laptop
+                  - entity: switch.pwc_laptop
+                  - entity: switch.laptop_bigdell
+                  - entity: switch.paosin_xps13
+                  - entity: switch.paosins_imac
+                  - entity: switch.folasadipadmini
+                  - entity: switch.femis_mac_mini
+                  - entity: switch.timis_ipad
+                title: Internet Clients

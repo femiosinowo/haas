@@ -1,0 +1,187 @@
+- title: temperature
+  icon: "mdi:bed"
+  path: rooms
+  cards:
+    - cards:
+        - type: "custom:button-card"
+          name: Rooms
+          template: card_title
+        - cards:
+            - type: grid
+              columns: 2
+              square: true
+              cards:
+                - type: "custom:button-card"
+                  template:
+                    - card_room
+                    - blue_no_state
+                    #- green_off_state
+                  name: Kids Room
+                  entity: sensor.kids_motion_up_temperature
+                  icon: mdi:teddy-bear
+                  tap_action:
+                    action: navigate
+                    navigation_path: "kidsroom"
+                  variables:
+                    label_use_temperature: true
+                    entity_1:
+                      entity_id: light.kids_bedroom_light
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+                    entity_2:
+                      entity_id: binary_sensor.kids_motion_up_ias_zone
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: none
+                    entity_3:
+                      entity_id: sensor.kids_motion_up_temperature
+                      tap_action:
+                        action: none
+                    entity_4:
+                      entity_id: switch.kids_tele_on_off
+                      icon: mdi:television
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+                - type: "custom:button-card"
+                  template:
+                    - card_room
+                    - blue_no_state
+                  name: Master Bedroom
+                  entity: sensor.masterbedroom_ecobee_temperature
+                  icon: mdi:bed-double
+                  tap_action:
+                    action: navigate
+                    navigation_path: "masterbedroom"
+                  variables:
+                    label_use_temperature: true
+                    entity_1:
+                      entity_id: light.master_bedroom_lights_3
+                      templates:
+                        - green_on
+
+                      tap_action:
+                        action: toggle
+                    entity_2:
+                      entity_id: media_player.masterbedroom_tele
+                      templates:
+                        - green_on
+
+                      tap_action:
+                        action: none
+                    entity_3:
+                      entity_id: sensor.masterbedroom_ecobee_temperature
+                      templates:
+                        - green_on
+
+                      tap_action:
+                        action: toggle
+                    entity_4:
+                      entity_id: fan.master_bedroom_fan_fan
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+
+                - type: "custom:button-card"
+                  template:
+                    - card_room
+                    - blue_no_state
+                  name: Kitchen
+                  entity: sensor.kitchen_motion_temperature
+                  icon: mdi:fridge-outline
+                  tap_action:
+                    action: navigate
+                    navigation_path: "kitchen"
+                  variables:
+                    label_use_temperature: true
+                    entity_1:
+                      entity_id: light.kitchen_lights
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+                    entity_2:
+                      entity_id: light.sink_light
+                      tap_action:
+                        action: toggle
+                    entity_3:
+                      entity_id: light.kitchen_countertop_light
+                      tap_action:
+                        action: toggle
+                    entity_4:
+                      entity_id: binary_sensor.kitchen_sink_ias_zone
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+
+                - type: "custom:button-card"
+                  template:
+                    - card_room
+                    - blue_no_state
+                  name: Office
+                  entity: sensor.basement_ecobee_temperature
+                  icon: mdi:chair-rolling
+                  tap_action:
+                    action: navigate
+                    navigation_path: "office"
+                  variables:
+                    label_use_temperature: true
+                    entity_1:
+                      entity_id: switch.virtual_office_control
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+                    entity_2:
+                      entity_id: switch.monitor_switch_c365e4fe_on_off
+                      tap_action:
+                        action: toggle
+                    entity_3:
+                      entity_id: switch.basement_heater_5bd40601_on_off
+                      tap_action:
+                        action: toggle
+                    entity_4:
+                      entity_id: light.basement_lights
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+
+                - type: "custom:button-card"
+                  template:
+                    - card_room
+                    - blue_no_state
+                  name: Loft
+                  entity: sensor.loft_ecobe_temperature
+                  icon: mdi:home-roof
+                  tap_action:
+                    action: navigate
+                    navigation_path: "loft"
+                  variables:
+                    label_use_temperature: true
+                    entity_1:
+                      entity_id: light.loft_lights
+                      templates:
+                        - green_on
+                      tap_action:
+                        action: toggle
+                    entity_2:
+                      entity_id: switch.loft_media_outlet_on_off
+                      tap_action:
+                        action: toggle
+                    entity_3:
+                      entity_id: light.loft_stairs_light
+                      tap_action:
+                        action: toggle
+
+
+
+          type: horizontal-stack
+
+      type: vertical-stack

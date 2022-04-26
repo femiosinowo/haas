@@ -1,0 +1,71 @@
+  - theme: Backend-selected
+    path: kidsroom
+    icon: mdi:teddy-bear
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: back
+        alignment: justify
+      - type: custom:mushroom-title-card
+        title: Kid's Room
+      - square: false
+        columns: 2
+        type: grid
+        cards:
+          - type: custom:mushroom-light-card
+            entity: light.kids_bedroom_light
+            use_light_color: true
+            show_brightness_control: true
+            name: Lights
+            tap_action:
+              action: toggle
+          - type: custom:mushroom-entity-card
+            entity: switch.kids_tele
+            name: Tele
+            icon: mdi:television
+            tap_action:
+              action: toggle
+            hide_icon: false
+      - type: custom:mushroom-media-player-card
+        entity: media_player.kids_tv
+        use_media_info: true
+        use_media_artwork: true
+        media_controls:
+          - on_off
+        volume_controls:
+          - volume_set
+          - volume_mute
+          - volume_buttons
+        tap_action:
+          action: toggle
+        name: Kids TV
+      - type: media-control
+        entity: media_player.kids_tv
+        theme: Mushroom
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.kids_room_ecobee_temperature
+              - type: entity
+                entity: binary_sensor.sade_closet_motion
+          - type: entities
+            entities:
+              - entity: binary_sensor.kids_motion_up_ias_zone
+              - entity: sensor.kids_motion_up_power
+              - entity: binary_sensor.kids_room_ecobee_occupancy
+            state_color: true
+            header:
+              type: graph
+              entity: sensor.kids_room_ecobee_temperature
+      - show_state: true
+        show_name: true
+        camera_view: auto
+        type: picture-entity
+        entity: camera.kids_room

@@ -1,0 +1,37 @@
+  - title: "Home"
+    path: switch
+    icon: "mdi:power-plug"
+    cards:
+      - type: "vertical-stack"
+        cards:
+          - type: "custom:auto-entities"
+            card:
+              type: "grid"
+              columns: 2
+              square: false
+              title: On Switches
+            card_param: "cards"
+            filter:
+              include:
+                - domain: "switch"
+                  state: "on"
+                  options:
+                    type: "custom:mushroom-entity-card"
+                    tap_action:
+                      action: toggle
+          - type: "custom:auto-entities"
+            card:
+              type: "grid"
+              columns: 2
+              square: false
+              title: Off Switches
+            card_param: "cards"
+            filter:
+              include:
+                - domain: "switch"
+                  state: "off"
+                  options:
+                    type: "custom:mushroom-entity-card"
+                    tap_action:
+                      action: toggle
+

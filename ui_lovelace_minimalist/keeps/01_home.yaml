@@ -1,0 +1,250 @@
+- title: "Home"
+  path: 0
+  icon: "mdi:flower"
+  cards:
+
+    - type: "custom:button-card"
+      template: "card_welcome_scenes"
+      #triggers_update: input_boolean.<Your_boolean>
+      #entity: input_boolean.<Your_boolean>
+      variables:
+        ulm_card_welcome_scenes_collapse: input_boolean.good_night #OPTIONAl --> uncomment also entity or triggers_update
+        ulm_weather: "weather.home"
+        entity_1:
+          entity_id: "scene.tv"
+          icon: "mdi:television" #OPTIONAL
+          name: "TV" #OPTIONAL
+          color: "blue"
+        entity_2:
+          entity_id: "scene.good_night"
+          icon: "mdi:sleep" #OPTIONAL
+          name: "Good Night" #OPTIONAL
+          color: "red"
+        entity_3:
+          entity_id: "scene.office_control"
+          icon: "mdi:chair-rolling" #OPTIONAL
+          name: "Office" #OPTIONAL
+          color: "green"
+        entity_4:
+          entity_id: "scene.good_night"
+          icon: "mdi:home" #OPTIONAL
+          name: "Bye" #OPTIONAL
+          color: "purple"
+        entity_5:
+          entity_id: "scene.good_night"
+          icon: "mdi:lightbulb" #OPTIONAL
+          name: "CC" #OPTIONAL
+          color: "yellow"
+
+    - type: "vertical-stack"
+      cards:
+        - type: "custom:button-card"
+          template: card_thermostat
+          entity: climate.thermostat
+          variables:
+            ulm_card_thermostat_enable_collapse: true
+            ulm_card_thermostat_enable_controls: true
+            ulm_card_thermostat_enable_hvac_modes: true
+            ulm_card_thermostat_enable_popup: true
+        - type: "custom:button-card"
+          template: "card_title"
+          name: "1st Floor"
+        - cards:
+            - type: grid
+              columns: 2
+              square: false
+              cards:
+                #                  - type: "custom:button-card"
+                #                    entity: lock.front_door_lock
+                #                    template: "custom_card_eraycetinay_lock"
+                #                    name: "Door Lock"
+                #                    variables:
+                #                      ulm_custom_card_eraycetinay_lock_tap_control: true
+                - type: custom:mushroom-entity-card
+                  entity: lock.front_door_lock
+                  tap_action:
+                    action: toggle
+                - type: "custom:button-card"
+                  template: card_input_boolean
+                  entity: input_boolean.tv
+                  name: TV
+                - type: custom:mushroom-light-card
+                  entity: light.living_room_lights
+                  name: L.R Lights
+                  show_brightness_control: true
+                  use_light_color: true
+                  tap_action:
+                    action: toggle
+                - type: custom:mushroom-light-card
+                  entity: light.living_room_lamp
+                  name: L.R Lamp
+                  show_brightness_control: true
+                  show_color_control: true
+                  use_light_color: true
+                  tap_action:
+                    action: toggle
+                - type: custom:mushroom-light-card
+                  entity: light.dining_room_lights
+                  name: Dining Lights
+                  icon: mdi:table-chair
+                  show_brightness_control: true
+                  use_light_color: true
+                  tap_action:
+                    action: toggle
+                - type: custom:mushroom-light-card
+                  entity: light.hallway_lights
+                  name: Hallway
+                  show_brightness_control: true
+                  use_light_color: true
+                  tap_action:
+                    action: toggle
+          type: horizontal-stack
+        - type: "custom:button-card"
+          template: "card_title"
+          name: "Master Bedroom"
+        - cards:
+            - type: grid
+              columns: 2
+              square: false
+              cards:
+                - type: custom:mushroom-fan-card
+                  entity: fan.master_bedroom_fan_fan
+                  show_percentage_control: true
+                  icon_animation: true
+                  name: Fan
+                  tap_action:
+                    action: toggle
+                - type: "custom:mushroom-light-card"
+                  # template: card_light
+                  entity: light.master_bedroom_lights_3
+                  name: M.R Lights
+                  show_brightness_control: true
+                  use_light_color: true
+                  tap_action:
+                    action: toggle
+                - type: "custom:mushroom-light-card"
+                  # template: card_light
+                  entity: light.femi_bedside_light_e9749efe_level_light_color_on_off
+                  show_brightness_control: true
+                  name: Femi Bedlight
+                  use_light_color: true
+                  show_color_control: true
+                  tap_action:
+                    action: toggle
+                - type: "custom:mushroom-light-card"
+                  #template: card_light
+                  entity: light.sade_bedlight_level_light_color_on_off
+                  show_brightness_control: true
+                  name: Sade Bedlight
+                  use_light_color: true
+                  show_color_control: true
+                  tap_action:
+                    action: toggle
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: switch.sades_closet
+                - type: "custom:button-card"
+                  template: card_light
+                  entity: light.master_bedroom_fan_level_on_off
+                  name: M.R Fanlight
+          type: horizontal-stack
+        - type: "custom:button-card"
+          template: card_graph
+          variables:
+            ulm_card_graph_color: "var(--google-blue)"
+            ulm_card_graph_name: Temperature MasterBedroom
+            ulm_card_graph_entity: sensor.masterbedroom_ecobee_temperature
+            ulm_card_graph_color2: "var(--google-green)"
+            ulm_card_graph_entity2: sensor.kids_room_ecobee_temperature
+            ulm_card_graph_type: fill
+            ulm_card_graph_hours: 24
+#    - square: false
+#      columns: 1
+#      type: grid
+#      cards:
+#        - type: custom:mushroom-entity-card
+#          template: card_media_player
+#          name: Master Bedroom TV
+#          entity: media_player.masterbedroom_tele
+    - type: "custom:button-card"
+      template: "card_title"
+      name: "Kids Room"
+    - square: false
+      columns: 2
+      type: grid
+      cards:
+        - type: custom:mushroom-light-card
+          entity: light.kids_bedroom_light
+          name: Lights
+          show_brightness_control: true
+          use_light_color: true
+          tap_action:
+            action: toggle
+        - type: custom:mushroom-entity-card
+          entity: switch.kids_tele_on_off
+          tap_action:
+            action: toggle
+          name: Tele
+    - type: "custom:button-card"
+      template: card_graph
+      variables:
+        ulm_card_graph_color: "var(--google-yellow)"
+        ulm_card_graph_name: Temperature Kids Room
+        ulm_card_graph_entity: sensor.kids_room_ecobee_temperature
+        ulm_card_graph_type: fill
+        ulm_card_graph_hours: 24
+
+    - square: false
+      columns: 2
+      type: grid
+      title: Walkways
+      cards:
+        - type: custom:mushroom-light-card
+          entity: light.hallway_lights
+          name: Hallway
+          show_brightness_control: true
+          use_light_color: true
+          tap_action:
+            action: toggle
+        - type: custom:mushroom-light-card
+          entity: light.staircase_lights
+          name: Stairs
+          show_brightness_control: true
+          use_light_color: true
+          tap_action:
+            action: toggle
+        - type: custom:mushroom-entity-card
+          entity: switch.basement_stairs_lights
+        - type: custom:mushroom-entity-card
+          entity: switch.loft_stairs_light
+          icon: mdi:chandelier
+    - square: false
+      columns: 2
+      type: grid
+      title: Kitchen
+      cards:
+        - type: custom:mushroom-light-card
+          entity: light.kitchen_lights
+          name: Kitchen
+          show_brightness_control: true
+          use_light_color: true
+          tap_action:
+            action: toggle
+        - type: custom:mushroom-entity-card
+          entity: switch.kitchen_countertop_light
+          name: Counter Lights
+          layout: vertical
+          icon: mdi:countertop-outline
+        - type: custom:mushroom-entity-card
+          entity: switch.sink_light
+          name: Sink Lights
+          layout: vertical
+          icon: mdi:countertop-outline
+    - type: "custom:button-card"
+      template: card_graph
+      variables:
+        ulm_card_graph_color: "var(--google-red)"
+        ulm_card_graph_name: Kitchen Temp
+        ulm_card_graph_entity: sensor.kitchen_motion_temperature
+        ulm_card_graph_type: fill
+        ulm_card_graph_hours: 24

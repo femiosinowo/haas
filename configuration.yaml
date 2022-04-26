@@ -131,11 +131,7 @@ switch:
 #    direction: True
 #    oscillate: True
 #    initial_availability: true
-nest:
-  client_id: 673989526747-j0la40jj1cv9u99psq7pp9mnabcom0mk.apps.googleusercontent.com
-  client_secret: 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
-  # "Project ID" in the Device Access Console (not Cloud Project ID!)
-  project_id: 052fef06-ba68-4fed-9c4f-e3e34e26dda4
+
         
 homeassistant:
   packages: !include_dir_named packages
